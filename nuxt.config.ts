@@ -50,4 +50,9 @@ export default defineNuxtConfig({
     },
   },
   pwa,
+  runtimeConfig: {
+    public: {
+      flightsJson: '',
+    },
+  },
 })
