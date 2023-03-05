@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
+    '@sidebase/nuxt-auth',
   ],
   experimental: {
     // when using generate, payload js assets included in sw precache manifest

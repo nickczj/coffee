@@ -17,6 +17,7 @@
     "@iconify-json/twemoji": "^1.1.11",
     "@nuxtjs/color-mode": "^3.2.0",
     "@pinia/nuxt": "^0.4.6",
+    "@sidebase/nuxt-auth": "^0.4.2",
     "@unocss/nuxt": "^0.49.7",
     "@vite-pwa/nuxt": "^0.0.6",
     "@vueuse/nuxt": "^9.13.0",
@@ -32,6 +33,7 @@
     "@fullcalendar/core": "^6.1.4",
     "@fullcalendar/daygrid": "^6.1.4",
     "@fullcalendar/list": "^6.1.4",
-    "@fullcalendar/timegrid": "^6.1.4"
+    "@fullcalendar/timegrid": "^6.1.4",
+    "next-auth": "4.18.8"
   }
 }
