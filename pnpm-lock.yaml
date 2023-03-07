@@ -23,6 +23,9 @@ specifiers:
   nuxt-typed-router: ^3.0.3
   pinia: ^2.0.30
   typescript: ^4.9.5
+  vite-plugin-pwa: ^0.14.4
+  workbox-build: ^6.5.4
+  workbox-window: ^6.5.4
 
 dependencies:
   '@fullcalendar/core': 6.1.4
@@ -42,13 +45,16 @@ devDependencies:
   '@pinia/nuxt': 0.4.6_typescript@4.9.5
   '@sidebase/nuxt-auth': 0.4.2_next-auth@4.18.8
   '@unocss/nuxt': 0.49.7
-  '@vite-pwa/nuxt': 0.0.6
+  '@vite-pwa/nuxt': 0.0.6_vite-plugin-pwa@0.14.4
   '@vueuse/nuxt': 9.13.0_nuxt@3.2.2
   eslint: 8.34.0
   nuxt: 3.2.2_7kw3g6rralp5ps6mg3uyzz6azm
   nuxt-lodash: 2.4.1
   pinia: 2.0.30_typescript@4.9.5
   typescript: 4.9.5
+  vite-plugin-pwa: 0.14.4_tz3vz2xt4jvid2diblkpydcyn4
+  workbox-build: 6.5.4
+  workbox-window: 6.5.4
 
 packages:
 
@@ -296,7 +302,7 @@ packages:
       '@babel/compat-data': 7.20.14
       '@babel/core': 7.20.12
       '@babel/helper-validator-option': 7.18.6
-      browserslist: 4.21.4
+      browserslist: 4.21.5
       lru-cache: 5.1.1
       semver: 6.3.0
 
@@ -3143,16 +3149,16 @@ packages:
       - supports-color
     dev: true
 
-  /@vite-pwa/nuxt/0.0.6:
+  /@vite-pwa/nuxt/0.0.6_vite-plugin-pwa@0.14.4:
     resolution: {integrity: sha512-TxIBNz8tBvirHFr3zLXEbWSFDQl1CBsyc+gegD6eVpT4fbMBb3i8Gzzqh6gTssVB+nB/zOXK/ZN1mGZysFPevQ==}
+    peerDependencies:
+      vite-plugin-pwa: ^0.14.0
     dependencies:
       '@nuxt/kit': 3.2.2
-      vite-plugin-pwa: 0.14.4
+      vite-plugin-pwa: 0.14.4_tz3vz2xt4jvid2diblkpydcyn4
     transitivePeerDependencies:
-      - '@types/babel__core'
       - rollup
       - supports-color
-      - vite
     dev: true
 
   /@vitejs/plugin-vue-jsx/3.0.0_vite@4.1.2+vue@3.2.47:
@@ -3672,6 +3678,7 @@ packages:
       electron-to-chromium: 1.4.263
       node-releases: 2.0.6
       update-browserslist-db: 1.0.9_browserslist@4.21.4
+    dev: true
 
   /browserslist/4.21.5:
     resolution: {integrity: sha512-tUkiguQGW7S3IhB7N+c2MV/HZPSCPAAiYBZXLsBhFB/PCy6ZKKsZrmBayHV9fdGV/ARIfJ14NkxKzRDjvp7L6w==}
@@ -3682,7 +3689,6 @@ packages:
       electron-to-chromium: 1.4.302
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
-    dev: true
 
   /buffer-crc32/0.2.13:
     resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
@@ -3792,10 +3798,10 @@ packages:
 
   /caniuse-lite/1.0.30001431:
     resolution: {integrity: sha512-zBUoFU0ZcxpvSt9IU66dXVT/3ctO1cy4y9cscs1szkPlcWb6pasYM144GqrUygUbT+k7cmUCW61cvskjcv0enQ==}
+    dev: true
 
   /caniuse-lite/1.0.30001456:
     resolution: {integrity: sha512-XFHJY5dUgmpMV25UqaD4kVq2LsiaU5rS8fb0f17pCoXQiQslzmFgnfOxfvo1bTpTqf7dwG/N/05CnLCnOEKmzA==}
-    dev: true
 
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -4407,10 +4413,10 @@ packages:
 
   /electron-to-chromium/1.4.263:
     resolution: {integrity: sha512-RcvChwbVkZBe7e+B23+wjXJgRHTy9Byu6JEL8HuNKILALs98deLnyGqv73nvwRKj6VGghrwnwKWC3ukVhQDvpQ==}
+    dev: true
 
   /electron-to-chromium/1.4.302:
     resolution: {integrity: sha512-Uk7C+7aPBryUR1Fwvk9VmipBcN9fVsqBO57jV2ZjTm+IZ6BMNqu7EDVEg2HxCNufk6QcWlFsBkhQyQroB2VWKw==}
-    dev: true
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -6730,10 +6736,10 @@ packages:
 
   /node-releases/2.0.10:
     resolution: {integrity: sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==}
-    dev: true
 
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
+    dev: true
 
   /nopt/5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
@@ -8849,7 +8855,6 @@ packages:
       browserslist: 4.21.5
       escalade: 3.1.1
       picocolors: 1.0.0
-    dev: true
 
   /update-browserslist-db/1.0.9_browserslist@4.21.4:
     resolution: {integrity: sha512-/xsqn21EGVdXI3EXSum1Yckj3ZVZugqyOZQ/CxYPBD/R+ko9NSUScf8tFF4dOKY+2pvSSJA/S+5B8s4Zr4kyvg==}
@@ -8860,6 +8865,7 @@ packages:
       browserslist: 4.21.4
       escalade: 3.1.1
       picocolors: 1.0.0
+    dev: true
 
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
@@ -8956,10 +8962,12 @@ packages:
       vscode-uri: 3.0.6
     dev: true
 
-  /vite-plugin-pwa/0.14.4:
+  /vite-plugin-pwa/0.14.4_tz3vz2xt4jvid2diblkpydcyn4:
     resolution: {integrity: sha512-M7Ct0so8OlouMkTWgXnl8W1xU95glITSKIe7qswZf1tniAstO2idElGCnsrTJ5NPNSx1XqfTCOUj8j94S6FD7Q==}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
+      workbox-build: ^6.5.4
+      workbox-window: ^6.5.4
     dependencies:
       '@rollup/plugin-replace': 5.0.2_rollup@3.17.0
       debug: 4.3.4
@@ -8969,7 +8977,6 @@ packages:
       workbox-build: 6.5.4
       workbox-window: 6.5.4
     transitivePeerDependencies:
-      - '@types/babel__core'
       - supports-color
     dev: true
 
