@@ -10,6 +10,9 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@sidebase/nuxt-auth',
     '@nuxt/image-edge',
+    'nuxt-typed-router',
+    'nuxt-lodash',
+    '@nuxtjs/partytown',
   ],
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
