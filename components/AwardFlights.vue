@@ -13,11 +13,29 @@ const saverIds = []
 const saverWlIds = []
 let isWaitlistToggled = true
 let calendar: Calendar
+interface Auth {access_token: string; expires_in: number; token_type: string}
 
 const createEventId = () => String(eventGuid++)
 
+// get flights from .env
 const runtimeConfig = useRuntimeConfig()
 const flights: Flight[] = JSON.parse(JSON.stringify(runtimeConfig.public.flightsJson)).flights
+
+// get flights from API
+// const headers = useRequestHeaders(['cookie']) as HeadersInit
+// const { data } = await useFetch<Auth>('https://dev-gx7a6qww.us.auth0.com/oauth/token', {
+//   headers: { Authorization: 'Basic OWZYSDhKekdXbDJBVFBBQmV0VWM4MmZ6WW1kUFFjb2Y6V29rd3VESEZFNmpkSmVZWEpIVHgydUtoMnVjWWJxanJaVEF5TUw0VzR5TmJ5cEZQSUlkNUhaNm9MU0hCTTk4Ng==' },
+//   method: 'POST',
+//   body: {
+//     grant_type: 'client_credentials',
+//     audience: 'https://nickczj.as.r.appspot.com',
+//   },
+// })
+
+// const flights: Flight[] = await fetch('http://localhost:8080/flights/multi').then(r => r.json())
+// const { data: flights } = await useFetch<Flight[]>('http://localhost:8080/flights/multi', {
+//   headers: { Authorization: `Bearer ${data.value?.access_token}` },
+// })
 
 let waitlistFlights: EventImpl[] = []
 
