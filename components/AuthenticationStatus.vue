@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { status, data, signIn } = useSession()
-setInterval(() => console.log(status), 5000)
 </script>
 
 <template>
