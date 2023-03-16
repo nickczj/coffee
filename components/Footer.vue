@@ -7,7 +7,6 @@
     gap-3
   >
     <NuxtLink i-carbon:home to="/" />
-    <AuthenticationStatus />
     <DarkToggle />
   </div>
 </template>

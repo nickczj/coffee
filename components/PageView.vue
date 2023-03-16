@@ -1,8 +1,5 @@
 <script setup lang="ts">
 definePageMeta({ auth: false })
-const { data, status, getCsrfToken, getProviders } = useSession()
-const providers = await getProviders()
-const csrfToken = await getCsrfToken()
 </script>
 
 <template>
