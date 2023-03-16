@@ -1,0 +1,31 @@
+---
+kind: pipeline
+type: docker
+name: publish-nickczj-coffee-on-merge-main
+
+trigger:
+  event:
+    - push
+  branch:
+    - main
+
+steps:
+- name: publish-nickczj-coffee-on-merge-main
+  image: plugins/docker
+  settings:
+    repo: ghcr.io/nickczj/coffee
+    tags:
+        - "main"
+        - "${DRONE_COMMIT_SHA}"
+    custom_labels:
+        - key: org.opencontainers.image.source
+          value: https://github.com/nickczj/coffee
+    dockerfile: ./Dockerfile
+    context:  ./
+    cache_from:
+      - ghcr.io/nickczj/coffee:main
+    registry:  https://ghcr.io
+    username:
+      from_secret: GH_USERNAME
+    password:
+      from_secret: GITHUB_PACKAGES_TOKEN

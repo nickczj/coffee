@@ -1,13 +1,10 @@
 <script setup lang="ts">
-const { data } = await useFetch('/api/pageview')
-
-const time = useTimeAgo(computed(() => data.value!.startAt))
+definePageMeta({ auth: false })
+const { data, status, getCsrfToken, getProviders } = useSession()
+const providers = await getProviders()
+const csrfToken = await getCsrfToken()
 </script>
 
 <template>
-  <div text-gray:80>
-    <span font-500 text-gray>{{ data!.pageview }}</span>
-    page views since
-    <span text-gray>{{ time }}</span>
-  </div>
+  <div class="max-w-5xl mx-auto mt-5 px-5" />
 </template>

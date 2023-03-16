@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
+    '@sidebase/nuxt-auth',
+    '@nuxt/image-edge',
+    'nuxt-typed-router',
+    'nuxt-lodash',
+    '@nuxtjs/partytown',
   ],
   experimental: {
     // when using generate, payload js assets included in sw precache manifest
@@ -50,4 +55,14 @@ export default defineNuxtConfig({
     },
   },
   pwa,
+  runtimeConfig: {
+    public: {
+      flightsJson: '',
+    },
+    authSecret: process.env.NUXT_AUTH_SECRET,
+    googleClientId: process.env.GOOGLE_CLIENT_ID,
+    googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    githubClientId: process.env.GITHUB_CLIENT_ID,
+    githubClientSecret: process.env.GITHUB_CLIENT_SECRET,
+  },
 })
